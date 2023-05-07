@@ -1,5 +1,7 @@
-import usermodel from ('userModel');
-import {hashpasword} from ('../helper/authHelper.js')
+import   usermodel from  '../models/userModel.js';
+import {haspassword , comparePassword} from '../helper/authHelper.js';
+import  Jwt  from "jsonwebtoken";
+
 export const registerController = async(req,res)=>{
       try {
         const {email,name,phone,password,address} = req.body;
@@ -31,7 +33,7 @@ export const registerController = async(req,res)=>{
             })
         }
         //hashpassword
-        const hasedpasword = await hashpasword(password);
+        const hasedpasword = await haspassword(password);
         //save user
         const user = await new usermodel({email,name,phone,address,password:hasedpasword}).save();
         res.status(200).send({
@@ -49,4 +51,62 @@ export const registerController = async(req,res)=>{
         })
       }
 };
+
+export const loginController =async (req,res)=>{
+  try {
+    const {email,password}= req.body;
+    if(!email || !password ){
+        res.status(404).send({
+            succecs:false,
+            message:"invalid email and password"
+            
+        })
+    }
+    const user = await usermodel.findOne({email})
+    if(!user){
+        return res.status(404).send({
+            succecs:false,
+            message:"user not found"
+            
+        })
+    }
+    const match = await comparePassword(password,user.password);
+    if(!match){
+        return res.status(200).send({
+            succecs:false,
+            message:"password is invaild"
+            
+        })
+
+    }
+    const options = {
+        expiresIn: '1h'
+      };
+    const token = await Jwt.sign({_id : user._id},process.env.JWT_SECRET,options)  ;
+    
+
+    res.status(200).send({
+        succecs:true,
+        message:"login seccessfully",
+        user : {
+            name: user.name,
+            email : user.email,
+            phone : user.phone,
+            address : user.address
+        },
+        token
+
+    });
+    
+  } catch (error) {
+    console.log(error);
+    res.status('500').send({
+        success:false,
+        masage:'error in login',
+        error
+    })
+  }
+
+
+}
 
