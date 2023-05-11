@@ -9,6 +9,6 @@ routers.post('/register',registerController);
 routers.post("/loging",loginController);
 
 //test route
-routers.get('/test',requireSignin, testController);
+routers.get('/test',requireSignin,isAdmin, testController);
 
 export default  routers;
