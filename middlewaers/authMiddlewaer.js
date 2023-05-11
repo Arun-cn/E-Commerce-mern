@@ -3,7 +3,8 @@ import userModel from "../models/userModel.js";
 
 export const requireSignin = async (req,res,next)=>{
   try {
-    const decode = Jwt.verify(req.headers.athorization,processe.env.JWT_SECRET);
+    console.log(req.headers.authorization)
+    const decode = Jwt.verify(req.headers.authorization,process.env.JWT_SECRET);
     req.user = decode;
     next();
   } catch (error) {
