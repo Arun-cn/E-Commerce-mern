@@ -31,3 +31,13 @@
   font-family: 'roboto',sans-serif  ;
   letter-spacing: 3px;
 }
+
+.footer a{
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+.footer a:hover{
+  color: white;
+  border-bottom: 1px solid #ffefba ;
+}

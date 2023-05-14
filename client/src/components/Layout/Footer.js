@@ -1,9 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <div className='bg-dark text-light p3'>
         <h1 className='text-center'>ALL Rights Reserved</h1>
+       <p className='text-center mt-3'>
+        <Link to ="/about">About</Link>
+        <Link to ="/contact">Contact</Link>
+        <Link to ="/policy">privacy policy</Link>
+
+       </p>
+         
     </div>
   )
 }
