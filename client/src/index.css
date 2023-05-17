@@ -41,3 +41,12 @@
   color: white;
   border-bottom: 1px solid #ffefba ;
 }
+
+/* register page */
+.register{
+  display:flex ;
+  align-items: center;
+  justify-content:center;
+  height: 70vh;
+  flex-direction: column;
+}
