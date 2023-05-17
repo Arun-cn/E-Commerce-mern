@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Pagenotfound from './pages/Pagenotfound';
 import Policy from './pages/Policy';
 import Register from './pages/Atuh/Register';
+import Login from './pages/Atuh/Login';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path='/' element={<HomePage/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/register" element={<Register/>}/>
+      <Route path="/login" element={<Login/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/policy" element={<Policy/>}/>
       <Route path="*" element={<Pagenotfound/>}/>

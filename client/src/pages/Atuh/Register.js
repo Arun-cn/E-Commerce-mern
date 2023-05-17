@@ -30,7 +30,7 @@ function Register() {
       });
       if (res && res.data.succecs) {
         toast.success(res.data && res.data.message);
-        navigate("/login");
+        navigate("/");
       } else {
         toast.error(res.data.message);
       }

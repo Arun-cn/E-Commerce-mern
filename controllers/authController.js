@@ -44,7 +44,7 @@ export const registerController = async(req,res)=>{
 
       } catch (error) {
         console.log(error);
-        res.status('500').send({
+        res.status(500).send({
             success:false,
             masage:'error in message',
             error
