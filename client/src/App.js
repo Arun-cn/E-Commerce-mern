@@ -8,6 +8,8 @@ import Pagenotfound from './pages/Pagenotfound';
 import Policy from './pages/Policy';
 import Register from './pages/Atuh/Register';
 import Login from './pages/Atuh/Login';
+import Dashboard from './pages/user/Dashboard';
+import PrivateRoute from './components/Routes/Private';
 
 
 function App() {
@@ -20,6 +22,10 @@ function App() {
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/policy" element={<Policy/>}/>
       <Route path="*" element={<Pagenotfound/>}/>
+      <Route path='/dashboard' element={<PrivateRoute/>}>
+         <Route path="" element={<Dashboard/>}/>
+      </Route>
+      
 
     
     </Routes>
