@@ -10,6 +10,7 @@ import Register from './pages/Atuh/Register';
 import Login from './pages/Atuh/Login';
 import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/Routes/Private';
+import ForgotPassword from './pages/Atuh/ForgotPassword';
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
       <Route path="/about" element={<About/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/forgot-password" element={<ForgotPassword/>}/>
+      
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/policy" element={<Policy/>}/>
       <Route path="*" element={<Pagenotfound/>}/>

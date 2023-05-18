@@ -24,7 +24,7 @@ function Login() {
         email,
         password
       });
-      if (res && res.data.succecs) {
+      if (res && res.data.success) {
         toast.success(res.data && res.data.message);
         setAuth({
           ...auth,
@@ -70,7 +70,11 @@ function Login() {
             required
           />
         </div>
-        
+        <div className='mb-3'>
+        <button type="button" className="btn btn-primary" onClick={()=>{navigate("/forgot-password")}}>
+      Forgot Password
+        </button>
+        </div>
         <button type="submit" className="btn btn-primary">
           LOGIN
         </button>
