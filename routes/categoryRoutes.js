@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/create-category",requireSignin,isAdmin,createCategoryController);
 
 // update category
-router.post('/update-category/:id',requireSignin,isAdmin,updateCategoryController);
+router.put('/update-category/:id',requireSignin,isAdmin,updateCategoryController);
 
 //get all category
 router.get("/category",categoryController);
