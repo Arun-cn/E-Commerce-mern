@@ -12,7 +12,7 @@ function createProduct() {
                   </div>
                   <div className="col-md-9">
                       <div className="card w-75 p-3">
-                      <h1>category</h1>
+                      <h1>All Products</h1>
                       </div>
                   </div>
 
