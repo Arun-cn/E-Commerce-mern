@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink ,Link } from 'react-router-dom'
 import { useAuth } from '../../Context/auth'
+import SearchInput from '../Form/SearchInput';
 
 
 const Headers = () => {
@@ -25,6 +26,7 @@ const Headers = () => {
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
       <Link className="navbar-brand" >Ecommerce APP</Link>
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+        <SearchInput />
         <li className="nav-item">
           <NavLink to="/" className="nav-link"   >Home</NavLink>
         </li>
