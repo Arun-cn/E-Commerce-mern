@@ -2,10 +2,12 @@ import React from 'react'
 import { NavLink ,Link } from 'react-router-dom'
 import { useAuth } from '../../Context/auth'
 import SearchInput from '../Form/SearchInput';
+import useCategory from "../../hooks/useCategory";
 
 
 const Headers = () => {
   const [auth,setAuth] = useAuth();
+  const categories = useCategory();
   const handleLogout = ()=>{
       setAuth({
         ...auth,
@@ -30,9 +32,32 @@ const Headers = () => {
         <li className="nav-item">
           <NavLink to="/" className="nav-link"   >Home</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink to="/cateory" className="nav-link"   >Category</NavLink>
-        </li>
+        <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  to={"/categories"}
+                  data-bs-toggle="dropdown"
+                >
+                  Categories
+                </Link>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to={"/categories"}>
+                      All Categories
+                    </Link>
+                  </li>
+                  {categories?.map((c) => (
+                    <li>
+                      <Link
+                        className="dropdown-item"
+                        to={`/category/${c.slug}`}
+                      >
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
         {!auth.user ? (<><li className="nav-item">
           <NavLink to="/register" className="nav-link" >Register</NavLink>
         </li>
