@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         required:true
     },
     answer:{
-        type:String,
+        type:{},
         require:true
     },
     role:{
