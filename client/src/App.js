@@ -17,7 +17,7 @@ import Users from './pages/Admin/Users';
 import CreateCategory from './pages/Admin/createCategory';
 import CreateProduct from './pages/Admin/createProduct';
 import Profile from './pages/user/Profile';
-import Oders from './pages/user/Oders';
+
 import Products from './pages/Admin/Products';
 import { UpdateProduct } from './pages/Admin/UpdateProduct';
 import Search from './pages/Search';
@@ -25,6 +25,7 @@ import ProductDetails from './pages/ProductDetails';
 import Categories from './pages/Categories';
 import CategoryProduct from './pages/CategoryProduct';
 import CartPage from './pages/CartPage';
+import Orders from './pages/user/Oders';
 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
       <Route path='/dashboard' element={<PrivateRoute/>}>
          <Route path="user" element={<Dashboard/>}/>
          <Route path="user/profile" element={<Profile/>}/>
-         <Route path="user/oders" element={<Oders/>}/>
+         <Route path="user/orders" element={<Orders/>}/>
       </Route>
       <Route path='/dashboard' element={<AdminRoute/>}>
         <Route path="admin" element={<AdminDashboard/>}/>

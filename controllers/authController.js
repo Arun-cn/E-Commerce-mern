@@ -1,7 +1,7 @@
 import   usermodel from  '../models/userModel.js';
 import {haspassword , comparePassword} from '../helper/authHelper.js';
 import  Jwt  from "jsonwebtoken";
-import userModel from '../models/userModel.js';
+import orderModel from  '../models/orderModel.js';
 
 
 export const registerController = async(req,res)=>{
@@ -133,7 +133,7 @@ export const forgotPasswordController = async(req,res)=>{
         res.status(400).send({error:'new password is requied'});
     }
     //check
-    const user = await userModel.findOne({email,answer})
+    const user = await usermodel.findOne({email,answer})
     //validation
     if(!user){
         return res.status('500').send({
@@ -164,13 +164,13 @@ export const forgotPasswordController = async(req,res)=>{
 export const updateProfileController = async (req, res) => {
     try {
       const { name, email, password, address, phone } = req.body;
-      const user = await userModel.findById(req.user._id);
+      const user = await usermodel.findById(req.user._id);
       //password
       if (password && password.length < 6) {
         return res.json({ error: "Passsword is required and 6 character long" });
       }
       const hashedPassword = password ? await haspassword(password) : undefined;
-      const updatedUser = await userModel.findByIdAndUpdate(
+      const updatedUser = await usermodel.findByIdAndUpdate(
         req.user._id,
         {
           name: name || user.name,
@@ -190,6 +190,24 @@ export const updateProfileController = async (req, res) => {
       res.status(400).send({
         success: false,
         message: "Error WHile Update profile",
+        error,
+      });
+    }
+  };
+
+ //orders
+export const getOrdersController = async (req, res) => {
+    try {
+      const orders = await orderModel
+        .find({ buyer: req.user._id })
+        .populate("products", "-photo")
+        .populate("buyer", "name");
+      res.json(orders);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        message: "Error WHile Geting Orders",
         error,
       });
     }
