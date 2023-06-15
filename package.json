@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "nodemon": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ./client"
   },
   "author": "",
   "license": "MIT",
