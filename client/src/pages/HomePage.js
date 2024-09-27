@@ -1,4 +1,4 @@
-import Layout from '../components/Layout/Layout'
+import Layout from "../components/Layout/Layout";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
@@ -7,11 +7,10 @@ import { useCart } from "../Context/cart";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { AiOutlineReload } from "react-icons/ai";
+import Carousel from "../components/Carousel/Carousel";
 import "../pages/styles/Homepage.css";
 
 function HomePage() {
-  
-
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
@@ -111,14 +110,7 @@ function HomePage() {
 
   return (
     <Layout title={"ALl Products - Best offers "}>
-      {/* banner image */}
-      <img
-        src="/images/banner.png"
-        className="banner-img"
-        alt="bannerimage"
-        width={"100%"}
-      />
-      {/* banner image */}
+      <Carousel />
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
@@ -223,7 +215,7 @@ function HomePage() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
