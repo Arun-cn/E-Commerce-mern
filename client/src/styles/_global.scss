@@ -1,0 +1,11 @@
+@import "base/reset";
+@import "utils/variables";
+
+// Global box-sizing for all elements
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
