@@ -7,10 +7,9 @@ const CarouselView = () => {
     <Carousel>
       <Carousel.Item>
         <Image
-          className="d-block w-100"
+          className="d-block w-100 carousel-image"
           src="carousel/carousel1.jpg"
           alt="First slide"
-          style={{ height: "50 vh", objectFit: "cover" }}
         />
         <Carousel.Caption>
           <h3>First slide label</h3>
@@ -19,10 +18,9 @@ const CarouselView = () => {
       </Carousel.Item>
       <Carousel.Item>
         <Image
-          className="d-block w-100"
+          className="d-block w-100 carousel-image"
           src="carousel/carousel2.jpg"
           alt="Second slide"
-          style={{ height: "50vh", objectFit: "cover" }}
         />
         <Carousel.Caption>
           <h3>Second slide label</h3>
@@ -31,10 +29,9 @@ const CarouselView = () => {
       </Carousel.Item>
       <Carousel.Item>
         <Image
-          className="d-block w-100 h-70"
+          className="d-block w-100 h-70 carousel-image"
           src="carousel/carousel3.jpg"
           alt="Third slide"
-          style={{ height: "50vh", objectFit: "cover" }}
         />
         <Carousel.Caption>
           <h3>Third slide label</h3>

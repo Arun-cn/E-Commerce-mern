@@ -1,0 +1,16 @@
+@import "../utils/variables";
+
+.category-bar {
+  background-color: $secondary-color; /* Optional background color for the bar */
+  margin-top: 20px;
+  border-radius: 20px;
+  .col {
+    background-color: $primary;
+  }
+}
+
+.category-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}

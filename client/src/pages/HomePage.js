@@ -8,8 +8,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { AiOutlineReload } from "react-icons/ai";
 import Carousel from "../components/Carousel/Carousel";
-import Container from "react-bootstrap/Container";
-import "../pages/styles/Homepage.css";
+import { Container, Row, Col } from "react-bootstrap";
+import CategoryBar from "../components/CategoryMenu/CategoryMenu";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -112,8 +112,18 @@ function HomePage() {
   return (
     <Layout title={"ALl Products - Best offers "}>
       <Container fluid className="p-0">
-        <Carousel />
-        <Container></Container>
+        <Row>
+          <Col>
+            <Carousel />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Container>
+              <CategoryBar />
+            </Container>
+          </Col>
+        </Row>
       </Container>
     </Layout>
   );
