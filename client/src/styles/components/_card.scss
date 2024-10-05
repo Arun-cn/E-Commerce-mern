@@ -1,0 +1,27 @@
+.card {
+  height: 100%; // Ensures the card takes up the full height for uniformity
+  display: flex;
+  flex-direction: column; // Make sure the content is stacked properly
+
+  img {
+    height: 200px; // Set a fixed height for the image
+    object-fit: cover; // Makes the image cover the area without distortion
+  }
+
+  .card-body {
+    flex-grow: 1; // Ensures the body grows to fill available space
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // Spreads out the content, keeping the button at the bottom
+  }
+
+  .card-title {
+    font-size: 1.25rem; // Adjust as needed for title size
+  }
+
+  .card-text {
+    flex-grow: 1; // Allows text to fill space but maintain uniform card height
+    overflow: hidden; // Prevents text overflow issues
+    text-overflow: ellipsis; // Adds ellipsis (...) if text is too long
+  }
+}

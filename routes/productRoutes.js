@@ -1,25 +1,44 @@
 import express from "express";
-import { createProductController,productPhotoController ,getProductController,getSingleProductController, deleteProductController, updateProductController, productFiltersController, productCountController, productListController, searchProductController, realtedProductController, productCategoryController, braintreeTokenController, brainTreePaymentController } from "../controllers/productController.js";
+import {
+  createProductController,
+  trendingProductController,
+  productPhotoController,
+  getProductController,
+  getSingleProductController,
+  deleteProductController,
+  updateProductController,
+  productFiltersController,
+  productCountController,
+  productListController,
+  searchProductController,
+  realtedProductController,
+  productCategoryController,
+  braintreeTokenController,
+  brainTreePaymentController,
+} from "../controllers/productController.js";
 import { isAdmin, requireSignin } from "../middlewaers/authMiddlewaer.js";
 import formidable from "express-formidable";
 
 const router = express();
 //routes
-router.post('/create-product',
-    requireSignin, 
-    isAdmin ,
-    formidable(), 
-    createProductController);
+router.post(
+  "/create-product",
+  requireSignin,
+  isAdmin,
+  formidable(),
+  createProductController
+);
 
 //update product
-router.put("/update-product/:pid",
-    requireSignin,
-    isAdmin,
-    formidable(),
-    updateProductController
-  );
+router.put(
+  "/update-product/:pid",
+  requireSignin,
+  isAdmin,
+  formidable(),
+  updateProductController
+);
 
-router.get('/get-product',getProductController);
+router.get("/get-product", getProductController);
 
 //single product
 router.get("/get-product/:slug", getSingleProductController);
@@ -32,6 +51,8 @@ router.delete("/delete-product/:pid", deleteProductController);
 
 //filter product
 router.post("/product-filters", productFiltersController);
+// trending products
+router.get("/trending", trendingProductController);
 
 //product count
 router.get("/product-count", productCountController);
@@ -41,7 +62,6 @@ router.get("/product-list/:page", productListController);
 
 //search product
 router.get("/search/:keyword", searchProductController);
-
 
 //similar product
 router.get("/related-product/:pid/:cid", realtedProductController);
