@@ -1,0 +1,9 @@
+.banner {
+  background: rgb(159, 211, 222);
+  background: linear-gradient(
+    90deg,
+    rgba(159, 211, 222, 1) 86%,
+    rgba(200, 218, 224, 1) 100%
+  );
+  min-height: 300px;
+}

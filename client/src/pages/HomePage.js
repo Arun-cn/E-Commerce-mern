@@ -11,6 +11,7 @@ import Carousel from "../components/Carousel/Carousel";
 import { Container, Row, Col } from "react-bootstrap";
 import CategoryBar from "../components/CategoryMenu/CategoryMenu";
 import CardLayout from "../components/CardLayout/CardLayout";
+import Banner from "../components/Banner";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -35,6 +36,13 @@ function HomePage() {
           <Col>
             <Container className="mt-5">
               <CardLayout />
+            </Container>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Container className="mt-5">
+              <Banner />
             </Container>
           </Col>
         </Row>
