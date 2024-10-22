@@ -4,11 +4,21 @@ import Banner from "../Banner";
 
 const index = () => {
   return (
-    <Container>
-      <Banner className="lg-6" />
-      <Banner className="lg-6" />
-      <Banner className="lg-6" />
-      <Banner className="lg-6" />
+    <Container className="mt-4">
+      <Row className="gy-4">
+        <Col md={6} className="mb-4">
+          <Banner />
+        </Col>
+        <Col md={6} className="mb-4">
+          <Banner />
+        </Col>
+        <Col md={6} className="mb-4">
+          <Banner />
+        </Col>
+        <Col md={6} className="mb-4">
+          <Banner />
+        </Col>
+      </Row>
     </Container>
   );
 };
