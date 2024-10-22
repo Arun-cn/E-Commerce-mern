@@ -23,19 +23,19 @@ function HomePage() {
       <Container fluid className="p-0">
         <Carousel />
 
-        <Container className="bg-secondary-color">
+        <Container className="bg-secondary-color mt-4 mb-4">
           <CategoryBar />
         </Container>
 
-        <Container>
+        <Container className="mt-5 mb-5">
           <CardLayout apiEndpoint="product/trending" view="card-view" />
         </Container>
 
-        <Container>
+        <Container className="mt-5 mb-5">
           <Banner />
         </Container>
 
-        <Container>
+        <Container className="mt-5 mb-5">
           <CardLayout apiEndpoint="product/trending" view="list-view" />
         </Container>
 
