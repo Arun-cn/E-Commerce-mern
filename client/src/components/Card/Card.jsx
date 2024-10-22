@@ -6,18 +6,21 @@ const CardView = (props) => {
   const { product } = props;
 
   return (
-    <Card className={`card-view`}>
+    <Card className={`card-view h-100`}>
       <Card.Img
         variant="top"
         src={`${process.env.REACT_APP_BASE_URL}/api/v1/product/product-photo/${product._id}`}
+        className="card-image"
       />
-      <Card.Body>
+      <Card.Body className="d-flex flex-column">
         <Card.Title className="card-title">{product.name}</Card.Title>
-        <Card.Text className="card-text">{product.description}</Card.Text>  
-        <Card.Text>
-          <small className="text-muted">Price: ${product.price}</small>
+        <Card.Text className="product-description flex-grow-1">
+          {product.description}
         </Card.Text>
-        <Button variant="primary">Add to Cart</Button>
+        <div className="product-footer d-flex justify-content-between align-items-center mt-auto">
+          <span className="product-price">${product.price}</span>
+          <Button variant="primary">Add to Cart</Button>
+        </div>
       </Card.Body>
     </Card>
   );

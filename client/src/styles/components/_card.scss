@@ -1,28 +1,35 @@
 .card-view {
-  height: 100%; // Ensures the card takes up the full height for uniformity
   display: flex;
-  flex-direction: column; // Make sure the content is stacked properly
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-  img {
+  .card-image {
     height: 200px; // Set a fixed height for the image
     object-fit: cover; // Makes the image cover the area without distortion
   }
 
-  .card-body {
-    flex-grow: 1; // Ensures the body grows to fill available space
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-between; // Spreads out the content, keeping the button at the bottom
+  .product-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
   }
 
-  .card-title {
-    font-size: 1.25rem; // Adjust as needed for title size
+  .product-description {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
   }
 
-  .card-text {
-    flex-grow: 1; // Allows text to fill space but maintain uniform card height
-    overflow: hidden; // Prevents text overflow issues
-    text-overflow: ellipsis; // Adds ellipsis (...) if text is too long
+  .product-footer {
+    margin-top: 10px;
+
+    .product-price {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
   }
 }
