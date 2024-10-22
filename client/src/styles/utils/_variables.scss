@@ -1,3 +1,8 @@
 $primary: #036280;
-$secondary-color: #d4dcff;
+$secondary-color: #d0e1e7;
 $custom-dark: #343a40;
+$bg-bc: #d0e1e7;
+
+.bg-secondary-color {
+  background-color: $secondary-color !important;
+}

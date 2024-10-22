@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 
 const categories = [
   { name: "Electronics", image: "/category/television.png" },
@@ -18,28 +18,30 @@ const categories = [
 
 const index = () => {
   return (
-    <Row className="category-bar justify-content-around ">
-      {categories.map((category, index) => (
-        <Col
-          key={index}
-          xs={6}
-          sm={5}
-          md={3}
-          lg={1}
-          className="text-center mt-3 mb-3"
-        >
-          {/* Image */}
-          <img
-            src={category.image}
-            alt={category.name}
-            className="img-fluid "
-            style={{ width: "80px", height: "80px", objectFit: "cover" }}
-          />
-          {/* Text */}
-          <div className="category-name mt-2">{category.name}</div>
-        </Col>
-      ))}
-    </Row>
+    <Container>
+      <Row className=" justify-content-around ">
+        {categories.map((category, index) => (
+          <Col
+            key={index}
+            xs={6}
+            sm={5}
+            md={3}
+            lg={1}
+            className="text-center mt-3 mb-3"
+          >
+            {/* Image */}
+            <img
+              src={category.image}
+              alt={category.name}
+              className="img-fluid "
+              style={{ width: "80px", height: "80px", objectFit: "cover" }}
+            />
+            {/* Text */}
+            <div className="category-name mt-2">{category.name}</div>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 

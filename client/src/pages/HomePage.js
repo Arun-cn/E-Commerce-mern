@@ -21,46 +21,27 @@ function HomePage() {
   return (
     <Layout title={"ALl Products - Best offers "}>
       <Container fluid className="p-0">
-        <Row>
-          <Col>
-            <Carousel />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Container className="mt-5">
-              <CategoryBar />
-            </Container>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Container className="mt-5">
-              <CardLayout apiEndpoint="product/trending" view="card-view" />
-            </Container>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Container className="mt-5">
-              <Banner />
-            </Container>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Container className="mt-5">
-              <CardLayout apiEndpoint="product/trending" view="list-view" />
-            </Container>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Container className="mt-5">
-              <BannerGrid />
-            </Container>
-          </Col>
-        </Row>
+        <Carousel />
+
+        <Container className="bg-secondary-color">
+          <CategoryBar />
+        </Container>
+
+        <Container>
+          <CardLayout apiEndpoint="product/trending" view="card-view" />
+        </Container>
+
+        <Container>
+          <Banner />
+        </Container>
+
+        <Container>
+          <CardLayout apiEndpoint="product/trending" view="list-view" />
+        </Container>
+
+        <Container className="mt-5">
+          <BannerGrid />
+        </Container>
       </Container>
     </Layout>
   );
