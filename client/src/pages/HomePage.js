@@ -12,6 +12,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import CategoryBar from "../components/CategoryMenu/CategoryMenu";
 import CardLayout from "../components/CardLayout/CardLayout";
 import Banner from "../components/Banner";
+import BannerGrid from "../components/BannerGrid";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ function HomePage() {
         <Row>
           <Col>
             <Container className="mt-5">
-              <CardLayout />
+              <CardLayout apiEndpoint="product/trending" view="card-view" />
             </Container>
           </Col>
         </Row>
@@ -43,6 +44,20 @@ function HomePage() {
           <Col>
             <Container className="mt-5">
               <Banner />
+            </Container>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Container className="mt-5">
+              <CardLayout apiEndpoint="product/trending" view="list-view" />
+            </Container>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Container className="mt-5">
+              <BannerGrid />
             </Container>
           </Col>
         </Row>

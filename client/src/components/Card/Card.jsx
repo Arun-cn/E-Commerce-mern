@@ -2,19 +2,14 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const API_BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:8080" // Development API URL
-    : process.env.REACT_APP_API_URL; // Production API URL from .env
-
 const CardView = (props) => {
   const { product } = props;
-  console.log(`card-product${product}`);
+
   return (
-    <Card className="card">
+    <Card className={`card-view`}>
       <Card.Img
         variant="top"
-        src={`${API_BASE_URL}/api/v1/product/product-photo/${product._id}`}
+        src={`${process.env.REACT_APP_BASE_URL}/api/v1/product/product-photo/${product._id}`}
       />
       <Card.Body>
         <Card.Title className="card-title">{product.name}</Card.Title>
