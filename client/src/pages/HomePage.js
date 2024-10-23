@@ -22,33 +22,33 @@ function HomePage() {
     <Layout title={"ALl Products - Best offers "}>
       <Container fluid className="p-0">
         <Carousel />
+      </Container>
 
-        <Container className="bg-secondary-color mt-4 mb-4">
-          <CategoryBar />
-        </Container>
+      <Container className="bg-secondary-color mt-4 mb-4">
+        <CategoryBar />
+      </Container>
 
-        <Container className="mt-5 mb-5">
-          <CardLayout apiEndpoint="product/trending" />
-        </Container>
+      <Container className="mt-5 mb-5">
+        <CardLayout apiEndpoint="product/trending" />
+      </Container>
 
-        <Container className="mt-5 mb-5">
-          <Banner />
-        </Container>
+      <Container className="mt-5 mb-5">
+        <Banner />
+      </Container>
 
-        <Container className="mt-5 mb-5">
-          <CardLayout apiEndpoint="product/trending" />
-        </Container>
+      <Container className="mt-5 mb-5">
+        <CardLayout apiEndpoint="product/trending" />
+      </Container>
 
-        <Container className="mt-5 mb-5">
-          <BannerGrid />
-        </Container>
+      <Container className="mt-5 mb-5">
+        <BannerGrid />
+      </Container>
 
-        <Container className="mt-5 mb-5 bg-secondary-color rounded">
-          <CardLayout apiEndpoint="product/trending" viewType="horizontal" />
-        </Container>
-        <Container className="mt-5 mb-5">
-          <Banner />
-        </Container>
+      <Container className="mt-5 mb-5 bg-secondary-color rounded">
+        <CardLayout apiEndpoint="product/trending" viewType="horizontal" />
+      </Container>
+      <Container className="mt-5 mb-5">
+        <Banner />
       </Container>
     </Layout>
   );

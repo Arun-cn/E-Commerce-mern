@@ -4,8 +4,8 @@ import Banner from "../Banner";
 
 const index = () => {
   return (
-    <Container className="mt-4">
-      <Row className="gy-4">
+    <Container fluid className="mt-4">
+      <Row className="gy-4 w-100">
         <Col md={6} className="mb-4">
           <Banner />
         </Col>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Card/Card";
 import axios from "../../utils/axiosInstance";
+import { Container } from "react-bootstrap";
 
 const CardLayout = ({ viewType, apiEndpoint }) => {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,7 @@ const CardLayout = ({ viewType, apiEndpoint }) => {
   };
 
   return (
-    <div className="cardlayout">
+    <Container fluid p-0 className="cardlayout">
       <h2>Featured Books</h2>
       <div className="row ">
         {products?.map((product, index) => (
@@ -37,7 +38,7 @@ const CardLayout = ({ viewType, apiEndpoint }) => {
           </div>
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 

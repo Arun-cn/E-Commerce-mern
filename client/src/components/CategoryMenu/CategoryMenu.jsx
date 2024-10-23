@@ -18,7 +18,7 @@ const categories = [
 
 const index = () => {
   return (
-    <Container>
+    <Container fluid>
       <Row className=" justify-content-around ">
         {categories.map((category, index) => (
           <Col
