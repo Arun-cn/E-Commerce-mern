@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 const CardView = (props) => {
-  const { product } = props;
+  const { product, view } = props;
+
+  console.log(view);
 
   return (
-    <Card className={`card-view h-100`}>
+    <Card
+      className={`${
+        view === "horizontal"
+          ? "card-view-horizontal h-100 d-flex flex-row"
+          : "card-view h-100 d-flex flex-column"
+      }`}
+    >
       <Card.Img
         variant="top"
         src={`${process.env.REACT_APP_BASE_URL}/api/v1/product/product-photo/${product._id}`}
-        className="card-image"
+        className="card-image p-2"
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title className="card-title">{product.name}</Card.Title>

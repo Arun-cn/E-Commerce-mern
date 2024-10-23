@@ -25,9 +25,14 @@ const CardLayout = ({ viewType, apiEndpoint }) => {
   return (
     <div className="cardlayout">
       <h2>Featured Books</h2>
-      <div className="row">
+      <div className="row ">
         {products?.map((product, index) => (
-          <div className="col-md-3" key={index}>
+          <div
+            className={`${
+              viewType === "horizontal" ? "col-md-6" : "col-md-3"
+            }  mb-4`}
+            key={index}
+          >
             <Card product={product} view={viewType} />
           </div>
         ))}

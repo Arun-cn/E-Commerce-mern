@@ -28,7 +28,7 @@ function HomePage() {
         </Container>
 
         <Container className="mt-5 mb-5">
-          <CardLayout apiEndpoint="product/trending" view="card-view" />
+          <CardLayout apiEndpoint="product/trending" />
         </Container>
 
         <Container className="mt-5 mb-5">
@@ -36,11 +36,18 @@ function HomePage() {
         </Container>
 
         <Container className="mt-5 mb-5">
-          <CardLayout apiEndpoint="product/trending" view="list-view" />
+          <CardLayout apiEndpoint="product/trending" />
         </Container>
 
-        <Container className="mt-5">
+        <Container className="mt-5 mb-5">
           <BannerGrid />
+        </Container>
+
+        <Container className="mt-5 mb-5 bg-secondary-color rounded">
+          <CardLayout apiEndpoint="product/trending" viewType="horizontal" />
+        </Container>
+        <Container className="mt-5 mb-5">
+          <Banner />
         </Container>
       </Container>
     </Layout>
