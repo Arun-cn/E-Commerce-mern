@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { AiOutlineReload } from "react-icons/ai";
 import Carousel from "../components/Carousel/Carousel";
 import { Container, Row, Col } from "react-bootstrap";
-import CategoryBar from "../components/CategoryMenu/CategoryMenu";
+import ServicesInfoMenu from "../components/ServiceInfoMenu";
 import CardLayout from "../components/CardLayout/CardLayout";
 import Banner from "../components/Banner";
 import BannerGrid from "../components/BannerGrid";
@@ -25,8 +25,8 @@ function HomePage() {
         <Carousel />
       </Container>
 
-      <Container className="bg-secondary-color mt-4 mb-4">
-        <CategoryBar />
+      <Container className="bg-secondary-color mt-5 mb-5 p-0">
+        <ServicesInfoMenu />
       </Container>
 
       <Container className="mt-5 mb-5">
