@@ -13,6 +13,7 @@ import CategoryBar from "../components/CategoryMenu/CategoryMenu";
 import CardLayout from "../components/CardLayout/CardLayout";
 import Banner from "../components/Banner";
 import BannerGrid from "../components/BannerGrid";
+import Testimonials from "../components/Testimonials";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -49,6 +50,9 @@ function HomePage() {
       </Container>
       <Container className="mt-5 mb-5">
         <Banner />
+      </Container>
+      <Container fluid className="mt-5 bg-primary">
+        <Testimonials />
       </Container>
     </Layout>
   );
