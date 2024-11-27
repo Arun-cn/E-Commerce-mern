@@ -1,0 +1,65 @@
+/* Container for the search bar */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Search form */
+.search-form {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* Adjust the max-width for the size of the search bar */
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Search input */
+.search-input {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px; /* Rounded corners */
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Focus effect */
+}
+
+/* Search button */
+.search-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn i {
+  font-size: 18px; /* Add search icon style */
+}
+
+/* Button hover effect */
+.search-btn:hover {
+  background-color: #218838;
+}
+
+.search-btn:focus {
+  outline: none;
+}
+
+/* Optional: Add a light transition to input */
+.search-input:focus,
+.search-btn:focus {
+  transition: transform 0.2s ease-in-out;
+}
