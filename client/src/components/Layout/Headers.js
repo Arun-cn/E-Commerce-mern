@@ -5,6 +5,8 @@ import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { Badge } from "antd";
 import { useCart } from "../../Context/cart";
+import { FaRegUser } from "react-icons/fa";
+import { IoCart } from "react-icons/io5";
 
 const Headers = () => {
   const [auth, setAuth] = useAuth();
@@ -81,14 +83,26 @@ const Headers = () => {
               </li>
             </ul>
           </div>
-          <SearchInput class="m-2" />
-          <div class="d-flex ms-2">
-            <button class="btn btn-outline-success me-1" type="submit ">
-              Login
-            </button>
-            <button class="btn btn-outline-success" type="submit ">
-              Register
-            </button>
+          <SearchInput className="me-5" />
+          <div className="d-flex ms-2">
+            {auth.user ? (
+              <button
+                className="icon-buttons"
+                type="button"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            ) : (
+              <button className="icon-buttons" type="button">
+                <FaRegUser className="nav-icon" />
+              </button>
+            )}
+            <Link to="/cart" className="icon-buttons">
+              <Badge count={cart.length} showZero offset={["4px", "-12px"]}>
+                <IoCart className="nav-icon " />
+              </Badge>
+            </Link>
           </div>
         </div>
       </div>
