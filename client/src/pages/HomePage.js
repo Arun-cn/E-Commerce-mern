@@ -34,7 +34,7 @@ function HomePage() {
       </Container>
 
       <Container className="mt-5 mb-5">
-        <Banner />
+        <Banner image={"/banner/banner1.jpg"} />
       </Container>
 
       <Container className="mt-5 mb-5">
@@ -49,7 +49,7 @@ function HomePage() {
         <CardLayout apiEndpoint="product/trending" viewType="horizontal" />
       </Container>
       <Container className="mt-5 mb-5">
-        <Banner />
+        <Banner image={"/banner/banner2.jpg"} />
       </Container>
       <Container fluid className="mt-5 bg-primary">
         <Testimonials />

@@ -1,17 +1,12 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Image, Container, Card } from "react-bootstrap";
 
-const index = () => {
+const index = ({ image }) => {
   return (
-    <Container
-      fluid
-      className="banner text-center text-light rounded d-flex flex-column justify-content-center align-items-center text-center"
-    >
-      <h1 className="display-4 pt- mb-2">Welcome to Our Store!</h1>
-      <p className="lead mb-2">Find the best products at unbeatable prices.</p>
-      <a href="/shop" className="btn btn-light btn-lg mt-1">
-        Shop Now
-      </a>
+    <Container className="mt-4 ">
+      <div className="image-banner">
+        <img src={image} className="banner-image" />
+      </div>
     </Container>
   );
 };
