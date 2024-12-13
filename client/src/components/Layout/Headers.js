@@ -21,7 +21,7 @@ const Headers = () => {
     localStorage.removeItem("auth");
   };
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary nav-bar">
       <div class="container-fluid">
         <button
           class="navbar-toggler"

@@ -11,10 +11,6 @@ const CarouselView = () => {
           src="carousel/carousel1.jpg"
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <Image
@@ -22,10 +18,10 @@ const CarouselView = () => {
           src="carousel/carousel2.jpg"
           alt="Second slide"
         />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
+
+        {/* <Carousel.Caption>
+          <h1>Upgrade Your Wardrobe with the Latest Collection</h1>
+        </Carousel.Caption> */}
       </Carousel.Item>
       <Carousel.Item>
         <Image
@@ -33,12 +29,9 @@ const CarouselView = () => {
           src="carousel/carousel3.jpg"
           alt="Third slide"
         />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
+        {/* <Carousel.Caption>
+          <h3>Where Quality Meets Affordability</h3>
+        </Carousel.Caption> */}
       </Carousel.Item>
     </Carousel>
   );
