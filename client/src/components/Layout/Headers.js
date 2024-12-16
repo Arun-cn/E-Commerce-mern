@@ -34,7 +34,7 @@ const Headers = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img
             src="/logo/elite emporium logo-light.png"
             alt="Logo"
@@ -44,8 +44,8 @@ const Headers = () => {
           />
         </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <div className="container-fluid  justify-content-center">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+          <div className="container-fluid d-flex justify-content-center align-items-center">
+            <ul class="navbar-nav  ms-auto mb-2 mb-lg-0 d-flex justify-content-center">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">
                   Home
@@ -83,7 +83,7 @@ const Headers = () => {
               </li>
             </ul>
           </div>
-          <SearchInput className="me-5" />
+          <SearchInput className="p-0" />
           <div className="d-flex ms-2">
             {auth.user ? (
               <button

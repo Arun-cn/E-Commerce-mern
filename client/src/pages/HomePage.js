@@ -30,7 +30,7 @@ function HomePage() {
       </Container>
 
       <Container className="mt-5 mb-5">
-        <CardLayout apiEndpoint="product/trending" />
+        <CardLayout apiEndpoint="product/trending" title="Trending Products" />
       </Container>
 
       <Container className="mt-5 mb-5">
@@ -38,7 +38,7 @@ function HomePage() {
       </Container>
 
       <Container className="mt-5 mb-5">
-        <CardLayout apiEndpoint="product/trending" />
+        <CardLayout apiEndpoint="product/trending" title="New Products" />
       </Container>
 
       <Container className="mt-5 mb-5">
@@ -46,7 +46,11 @@ function HomePage() {
       </Container>
 
       <Container className="mt-5 mb-5 bg-secondary-color rounded">
-        <CardLayout apiEndpoint="product/trending" viewType="horizontal" />
+        <CardLayout
+          apiEndpoint="product/trending"
+          viewType="horizontal"
+          title="Featured products"
+        />
       </Container>
       <Container className="mt-5 mb-5">
         <Banner image={"/banner/banner2.jpg"} />

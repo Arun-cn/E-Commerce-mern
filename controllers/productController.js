@@ -381,7 +381,7 @@ export const trendingProductController = async (req, res) => {
       .find({})
       .sort({ views: -1 })
       .select("-photo")
-      .limit(4);
+      .limit(8);
     res.status(200).send({
       success: true,
       products,

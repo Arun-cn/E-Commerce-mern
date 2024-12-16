@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 import axios from "../../utils/axiosInstance";
 import { Container } from "react-bootstrap";
 
-const CardLayout = ({ viewType, apiEndpoint }) => {
+const CardLayout = ({ viewType, apiEndpoint, title }) => {
   const [products, setProducts] = useState([]);
 
   // Fetch trending products from the backend
@@ -25,13 +25,13 @@ const CardLayout = ({ viewType, apiEndpoint }) => {
 
   return (
     <Container fluid p-0 className="cardlayout">
-      <h2>Featured Books</h2>
+      <h2>{title}</h2>
       <div className="row ">
         {products?.map((product, index) => (
           <div
             className={`${
               viewType === "horizontal" ? "col-md-6" : "col-md-3"
-            }  mb-4`}
+            }  mb-3`}
             key={index}
           >
             <Card product={product} view={viewType} />
