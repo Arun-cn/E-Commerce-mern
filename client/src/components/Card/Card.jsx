@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useCart } from "../../Context/cart";
+import toast from "react-hot-toast";
 
 const CardView = (props) => {
   const { product, view } = props;
-
-  console.log(view);
+  const [cart, setCart] = useCart();
 
   return (
     <Card
@@ -27,7 +28,16 @@ const CardView = (props) => {
         </Card.Text>
         <div className="product-footer d-flex justify-content-between align-items-center mt-auto">
           <span className="product-price">${product.price}</span>
-          <Button variant="primary">Add to Cart</Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setCart([...cart, product]);
+              localStorage.setItem("cart", JSON.stringify([...cart, product]));
+              toast.success("Item Added to cart");
+            }}
+          >
+            Add to Cart
+          </Button>
         </div>
       </Card.Body>
     </Card>
