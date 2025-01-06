@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../Context/auth";
 import SearchInput from "../Form/SearchInput";
-import useCategory from "../../hooks/useCategory";
 import { Badge } from "antd";
 import { useCart } from "../../Context/cart";
 import { FaRegUser } from "react-icons/fa";
@@ -11,7 +10,6 @@ import { IoCart } from "react-icons/io5";
 const Headers = () => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
-  const categories = useCategory();
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -47,13 +45,13 @@ const Headers = () => {
           <div className="container-fluid d-flex justify-content-center align-items-center">
             <ul class="navbar-nav  ms-auto mb-2 mb-lg-0 d-flex justify-content-center">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a class="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  TREND NOW
+                <a class="nav-link" href="/category/home-appliances">
+                  Home Appliances
                 </a>
               </li>
               <li class="nav-item">
@@ -62,23 +60,23 @@ const Headers = () => {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/category/new-arrivals">
                   New Arrivals
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Best Sellers
+                <a class="nav-link" href="/category/books">
+                  Books
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/category/electronics">
                   Electronics
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Blog
+                <a class="nav-link" href="/category/jewelry">
+                  Jewelry
                 </a>
               </li>
             </ul>
