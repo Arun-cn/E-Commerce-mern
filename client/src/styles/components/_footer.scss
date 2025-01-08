@@ -1,0 +1,16 @@
+.footer-links {
+  ul {
+    list-style: none; // Remove bullet points from list items
+    padding: 0; // Remove default padding
+    margin: 0; // Remove default margin
+  }
+
+  li {
+    // Add some spacing between list items
+  }
+
+  a {
+    text-decoration: none; // Remove underline from links
+    color: white; // Make text white
+  }
+}
