@@ -22,7 +22,14 @@ const CardView = (props) => {
         className="card-image p-2"
       />
       <Card.Body className="d-flex flex-column">
-        <Card.Title className="card-title">{product.name}</Card.Title>
+        <Card.Title className="card-title">
+          <a
+            href={`/product/${product.slug}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            {product.name}
+          </a>
+        </Card.Title>
         <Card.Text className="product-description flex-grow-1">
           {product.description}
         </Card.Text>
@@ -30,6 +37,7 @@ const CardView = (props) => {
           <span className="product-price">${product.price}</span>
           <Button
             variant="primary"
+            style={{ maxWidth: "200px" }}
             onClick={() => {
               setCart([...cart, product]);
               localStorage.setItem("cart", JSON.stringify([...cart, product]));
