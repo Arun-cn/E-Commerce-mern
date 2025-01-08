@@ -1,6 +1,6 @@
 import React from "react";
 import { useSearch } from "../../Context/search";
-import axios from "axios";
+import axiosInstance from "../../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
@@ -11,7 +11,7 @@ const SearchInput = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.get(
+      const { data } = await axiosInstance.get(
         `/api/v1/product/search/${values.keyword}`
       );
       setValues({ ...values, results: data });

@@ -48,7 +48,7 @@ const CategoryProduct = () => {
   // filter by category
   const handleFilter = (value, id) => {
     let all = [...checked];
-    console.log(all);
+
     if (value) {
       all.push(id);
     } else {
@@ -57,11 +57,21 @@ const CategoryProduct = () => {
     setChecked(all);
   };
   useEffect(() => {
-    if (!checked.length || !radio.length) getAllProducts();
-  }, [checked.length, radio.length]);
+    if (category.length > 0 && params?.slug) {
+      const itemId = category.find((c) => c.slug === params.slug);
+      if (itemId) {
+        handleFilter(true, itemId._id);
+      } else {
+        getAllProducts();
+      }
+    }
+  }, [category]);
 
   useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
+    if (checked.length || radio.length) {
+      setProducts([]);
+      filterProduct();
+    }
   }, [checked, radio]);
 
   //get filterd product
@@ -100,6 +110,7 @@ const CategoryProduct = () => {
     if (page === 1) return;
     loadMore();
   }, [page]);
+
   //load more
   const loadMore = async () => {
     try {
