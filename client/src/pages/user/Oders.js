@@ -1,35 +1,34 @@
 import React, { useState, useEffect } from "react";
-import Layout from '../../components/Layout/Layout'
-import UserMenu from '../../components/Layout/UserMenu'
-import axios from "axios";
+import Layout from "../../components/Layout/Layout";
+import UserMenu from "../../components/Layout/UserMenu";
+import axiosInstance from "../../utils/axiosInstance";
 import { useAuth } from "../../Context/auth";
 import moment from "moment";
 
 const Orders = () => {
-    const [orders, setOrders] = useState([]);
-    const [auth, setAuth] = useAuth();
-    const getOrders = async () => {
-      try {
-        const { data } = await axios.get("/api/v1/auth/orders");
-        setOrders(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
-    useEffect(() => {
-      if (auth?.token) getOrders();
-    }, [auth?.token]);
+  const [orders, setOrders] = useState([]);
+  const [auth, setAuth] = useAuth();
+  const getOrders = async () => {
+    try {
+      const { data } = await axiosInstance.get("/api/v1/auth/orders");
+      setOrders(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  useEffect(() => {
+    if (auth?.token) getOrders();
+  }, [auth?.token]);
 
   return (
     <Layout>
-        <div className="container-fluid m-3 p-3">
-              <div className="row">
-                  <div className="col-md-3">
-                      <UserMenu />
-                  </div>
-                  <div className="col-md-9">
+      <div className="container-fluid m-3 p-3">
+        <div className="row">
+          <div className="col-md-3">
+            <UserMenu />
+          </div>
+          <div className="col-md-9">
             <h1 className="text-center">All Orders</h1>
             {orders?.map((o, i) => {
               return (
@@ -80,11 +79,10 @@ const Orders = () => {
               );
             })}
           </div>
+        </div>
+      </div>
+    </Layout>
+  );
+};
 
-              </div>
-          </div>
-  </Layout>
-  )
-}
-
-export default Orders
+export default Orders;

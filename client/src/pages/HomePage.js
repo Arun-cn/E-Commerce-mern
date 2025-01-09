@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../Context/cart";
-import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 import toast from "react-hot-toast";
 import { AiOutlineReload } from "react-icons/ai";
 import Carousel from "../components/Carousel/Carousel";
