@@ -4,7 +4,6 @@ import Layout from "../../components/Layout/Layout";
 import axiosInstance from "../../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import "../styles/AuthStyles.css";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
