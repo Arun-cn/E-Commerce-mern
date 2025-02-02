@@ -1,95 +1,202 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
+import { Checkbox, Radio } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
 import "../pages/styles//CategoryProductStyles.css";
-import axios from "axios";
+import Card from "../components/Card/Card";
+import { Prices } from "../components/Prices";
+import axiosInstance from "../utils/axiosInstance";
+import { AiOutlineReload } from "react-icons/ai";
+
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
+  const [checked, setChecked] = useState([]);
+  const [radio, setRadio] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  // Get all categories and total count of products
+  useEffect(() => {
+    getAllCategory();
+    getTotal();
+  }, []);
+
+  // Get all categories
+  const getAllCategory = async () => {
+    try {
+      const response = await axiosInstance.get("/api/v1/category/get-category");
+      setCategory(response.data.category);
+    } catch (error) {
+      console.error("Error fetching categories", error);
+    }
+  };
+
+  // Get total count of products
+  const getTotal = async () => {
+    try {
+      const response = await axiosInstance.get("/api/v1/product/product-count");
+      setTotal(response.data?.total);
+    } catch (error) {
+      console.error("Error fetching total products", error);
+    }
+  };
+
+  // filter by category
+  const handleFilter = (value, id) => {
+    let all = [...checked];
+
+    if (value) {
+      all.push(id);
+    } else {
+      all = all.filter((c) => c !== id);
+    }
+    setChecked(all);
+  };
+  useEffect(() => {
+    if (category.length > 0 && params?.slug) {
+      const itemId = category.find((c) => c.slug === params.slug);
+      if (itemId) {
+        handleFilter(true, itemId._id);
+      } else {
+        getAllProducts();
+      }
+    }
+  }, [category]);
 
   useEffect(() => {
-    if (params?.slug) getPrductsByCat();
-  }, [params?.slug]);
-  const getPrductsByCat = async () => {
+    if (checked.length || radio.length) {
+      setProducts([]);
+      filterProduct();
+    }
+  }, [checked, radio]);
+
+  //get filterd product
+  const filterProduct = async () => {
     try {
-      const { data } = await axios.get(
-        `/api/v1/product/product-category/${params.slug}`
+      const { data } = await axiosInstance.post(
+        "/api/v1/product/product-filters",
+        {
+          checked,
+          radio,
+        }
       );
       setProducts(data?.products);
-      setCategory(data?.category);
     } catch (error) {
       console.log(error);
     }
   };
 
+  //get products
+  const getAllProducts = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axiosInstance.get(
+        `/api/v1/product/product-list/${page}`
+      );
+      setLoading(false);
+      setProducts(data.products);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
+  // Load more products
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
+
+  //load more
+  const loadMore = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axiosInstance.get(
+        `/api/v1/product/product-list/${page}`
+      );
+      setLoading(false);
+      setProducts([...products, ...data?.products]);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
   return (
     <Layout>
-      <div className="container mt-3 category">
-        <h4 className="text-center">Category - {category?.name}</h4>
-        <h6 className="text-center">{products?.length} result found </h6>
+      <div className="container">
         <div className="row">
-          <div className="col-md-9 offset-1">
-            <div className="d-flex flex-wrap">
-              {products?.map((p) => (
-                <div className="card m-2" key={p._id}>
-                  <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
-                  <div className="card-body">
-                    <div className="card-name-price">
-                      <h5 className="card-title">{p.name}</h5>
-                      <h5 className="card-title card-price">
-                        {p.price.toLocaleString("en-US", {
-                          style: "currency",
-                          currency: "USD",
-                        })}
-                      </h5>
-                    </div>
-                    <p className="card-text ">
-                      {p.description.substring(0, 60)}...
-                    </p>
-                    <div className="card-name-price">
-                      <button
-                        className="btn btn-info ms-1"
-                        onClick={() => navigate(`/product/${p.slug}`)}
-                      >
-                        More Details
-                      </button>
-                      {/* <button
-                    className="btn btn-dark ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
+          <div className="col-2">
+            <div className="container-fluid  ">
+              <div className=" filters">
+                <h6 className="mt-2">Filter By Category</h6>
+                <div className="d-flex flex-column">
+                  {category?.map((c) => (
+                    <Checkbox
+                      key={c._id}
+                      onChange={(e) => handleFilter(e.target.checked, c._id)}
+                    >
+                      {c.name}
+                    </Checkbox>
+                  ))}
+                </div>
+                {/* price filter */}
+                <h6 className=" mt-4">Filter By Price</h6>
+                <div className="d-flex flex-column">
+                  <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                    {Prices?.map((p) => (
+                      <div key={p._id}>
+                        <Radio value={p.array}>{p.name}</Radio>
+                      </div>
+                    ))}
+                  </Radio.Group>
+                </div>
+                <div className="d-flex flex-column">
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => window.location.reload()}
+                  >
+                    RESET FILTERS
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-10">
+            <h3>Products</h3>
+            <div className="container-fluid ">
+              <div className="row ">
+                {products.map((product) => (
+                  <div className="col-md-4 mb-3 ">
+                    <Card product={product} />
+                  </div>
+                ))}
+              </div>
+              <div className="row d-flex justify-content-center">
+                {products && products.length < total && (
+                  <button
+                    className="btn btn-primary mb-3"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPage(page + 1);
                     }}
                   >
-                    ADD TO CART
-                  </button> */}
-                    </div>
-                  </div>
-                </div>
-              ))}
+                    {loading ? (
+                      "Loading ..."
+                    ) : (
+                      <>
+                        {" "}
+                        Loadmore <AiOutlineReload />
+                      </>
+                    )}
+                  </button>
+                )}
+              </div>
             </div>
-            {/* <div className="m-2 p-3">
-            {products && products.length < total && (
-              <button
-                className="btn btn-warning"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPage(page + 1);
-                }}
-              >
-                {loading ? "Loading ..." : "Loadmore"}
-              </button>
-            )}
-          </div> */}
           </div>
         </div>
       </div>

@@ -1,0 +1,16 @@
+@import "utils/mixins";
+@import "base/reset";
+@import "./utils/variables";
+@import "components/serviceinfocard";
+@import "components/carousel";
+@import "components/card";
+@import "components/banner";
+@import "components/cardLayout";
+@import "components/testimonial";
+@import "components/searchinput";
+@import "components/headers";
+@import "components/footer";
+@import "components/authStyles";
+@import "global";
+
+@import "~bootstrap/scss/bootstrap"; // Bootstrap SCSS

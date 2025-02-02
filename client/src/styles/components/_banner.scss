@@ -1,0 +1,17 @@
+.banner {
+}
+
+.image-banner {
+  width: 100%; /* Full width of the container */
+  max-height: 300px; /* Maximum height of the banner */
+  overflow: hidden; /* Crop any overflowing parts of the image */
+  display: flex; /* For centering content if needed */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.banner-image {
+  width: 100%; /* Scale the image to the full width of the container */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover;
+}

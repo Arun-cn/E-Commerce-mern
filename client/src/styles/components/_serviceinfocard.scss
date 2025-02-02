@@ -1,0 +1,30 @@
+.feature-bar {
+  background-color: secondary-color; // Light background
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.feature-icon-wrapper {
+  width: 75px;
+  height: 75px;
+  background-color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px; // Slight rounding for a smooth square
+  margin-right: 15px;
+}
+
+.feature-icon {
+  color: #fff; // White icon color
+}
+
+.feature-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: $custom-dark;
+}
+
+.feature-description {
+  color: #6c757d; // Muted gray for description
+}
