@@ -1,12 +1,7 @@
-import React from 'react'
-import Layout from '../components/Layout/Layout'
+import React from "react";
 
 function Contact() {
-  return (
-    <Layout>
-    <div>Contact</div>
-    </Layout>
-  )
+  return <div>Contact</div>;
 }
 
-export default Contact
+export default Contact;

@@ -1,13 +1,7 @@
-import React from 'react'
-import Layout from '../components/Layout/Layout'
+import React from "react";
 
 function Policy() {
-  return (
-    <Layout>
-    <div>policy</div>
-    </Layout>
-  )
-  
+  return <div>policy</div>;
 }
 
-export default Policy
+export default Policy;
