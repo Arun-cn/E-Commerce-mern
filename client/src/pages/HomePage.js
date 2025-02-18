@@ -1,4 +1,3 @@
-import Layout from "../components/Layout/Layout";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
@@ -20,7 +19,7 @@ function HomePage() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <Layout title={"ALl Products - Best offers "}>
+    <div>
       <Container fluid className="p-0">
         <Carousel />
       </Container>
@@ -58,7 +57,7 @@ function HomePage() {
       <Container fluid className="mt-5 bg-primary">
         <Testimonials />
       </Container>
-    </Layout>
+    </div>
   );
 }
 

@@ -31,7 +31,7 @@ const Headers = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/">
           <img
@@ -46,39 +46,39 @@ const Headers = () => {
           <div className="container-fluid d-flex justify-content-center align-items-center">
             <ul class="navbar-nav  ms-auto mb-2 mb-lg-0 d-flex justify-content-center">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
+                <NavLink className="nav-link active " to="/">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/category/home-appliances">
+                <NavLink className="nav-link" to="/category/home-appliances">
                   Home Appliances
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <NavLink className="nav-link" to="/category/fashion">
                   Fashion
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/category/new-arrivals">
+                <NavLink className="nav-link" to="/category/new-arrivals">
                   New Arrivals
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/category/books">
+                <NavLink className="nav-link" to="/category/books">
                   Books
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/category/electronics">
+                <NavLink className="nav-link" to="/category/electronics">
                   Electronics
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/category/jewelry">
+                <NavLink className="nav-link" to="/category/jewelry">
                   Jewelry
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -91,19 +91,28 @@ const Headers = () => {
                 </Dropdown.Toggle>
                 {!auth.user ? (
                   <Dropdown.Menu>
-                    <Dropdown.Item href="/login">Login</Dropdown.Item>
-                    <Dropdown.Item href="/register">Register</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="/login">
+                      Login
+                    </Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="/register">
+                      Register
+                    </Dropdown.Item>
                   </Dropdown.Menu>
                 ) : (
                   <Dropdown.Menu>
                     <Dropdown.Item
-                      href={`/dashboard/${
+                      as={NavLink}
+                      to={`/dashboard/${
                         auth?.user?.role === 1 ? "admin" : "user"
                       }`}
                     >
                       Dashboard
                     </Dropdown.Item>
-                    <Dropdown.Item onClick={handleLogout} href="/login">
+                    <Dropdown.Item
+                      onClick={handleLogout}
+                      as={NavLink}
+                      to="/login"
+                    >
                       Log Out
                     </Dropdown.Item>
                   </Dropdown.Menu>
