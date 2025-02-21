@@ -86,7 +86,7 @@ const Headers = () => {
           <div className="d-flex ms-2">
             <div>
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle variant="primary" id="dropdown-basic">
                   <FaRegUser />
                 </Dropdown.Toggle>
                 {!auth.user ? (
