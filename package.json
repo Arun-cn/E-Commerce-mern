@@ -1,32 +1,20 @@
 {
-  "name": "mern-ecommerce",
+  "name": "e-commerce-mern",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "type": "module",
+  "description": "This is a comprehensive E-Commerce application built using the MERN stack (MongoDB, Express.js, React, Node.js). It provides a robust platform for managing products, handling user authentication and authorization, processing orders, integrating payments, and ensuring a responsive design for an optimal user experience. The application is designed to be scalable and maintainable, making it suitable for both small and large-scale e-commerce businesses.",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix ./client"
+    "start": "cd server && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arun-cn/E-Commerce-mern.git"
   },
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.2",
-    "braintree": "^3.16.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "express-formidable": "^1.2.0",
-    "formidable": "^2.1.1",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.4",
-    "morgan": "^1.10.0",
-    "react-icons": "^4.9.0",
-    "slugify": "^1.6.6"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arun-cn/E-Commerce-mern/issues"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
-  }
+  "homepage": "https://github.com/Arun-cn/E-Commerce-mern#readme"
 }
